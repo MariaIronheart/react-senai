@@ -1,6 +1,5 @@
-import { TextInput, Button, View, Text , Image, StyleSheet} from "react-native";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import { useState } from "react";
-import Logo from "../logo/logo";
 import React from "react";
 
 export default Login = () => {
@@ -17,6 +16,9 @@ export default Login = () => {
 
         <View style={styles.caixa}>
 
+            <Image style={styles.logo}
+                source={require('./senai.jpg')}
+            />
            
             <TextInput
                 placeholder="Email"
@@ -34,12 +36,12 @@ export default Login = () => {
                 value={password}
                 secureTextEntry={true}
             />
-            <Button style={styles.botao}
-                onPress={realizarLogin}
-                title="Entrar"
-                
-                
-            />
+            <TouchableOpacity style={styles.botao}
+                onPress={realizarLogin}>
+
+                <Text style={styles.texto}>Entrar</Text>
+            </TouchableOpacity>
+
 
         </View>
 
@@ -81,6 +83,26 @@ const styles = StyleSheet.create({
         width: '100%',
         borderRadius: 10
         
+    },
+    logo: {
+        width: 250,
+        height: 40,
+        marginBottom: 15,
+
+    },
+    botao: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 250,
+        height: 50,
+        borderRadius: 5,
+        backgroundColor: '#00BFFF',
+
+    },
+    texto: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 15,
     }
 });
 
